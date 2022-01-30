@@ -7,6 +7,14 @@ public class EnemyManager : MonoBehaviour
     float currentTime; //현재 시간
     public float createTime = 1; //일정 시간
     public GameObject enemyFactory; //적 공장
+    float minTime = 1; //최소 시간
+    float maxTime = 5; //최대 시간
+
+    void Start()
+    {
+        //태어날 때 적의 생성 시간을 설정
+        createTime = Random.Range(minTime, maxTime);
+    }
 
     void Update()
     {
@@ -22,6 +30,8 @@ public class EnemyManager : MonoBehaviour
             enemy.transform.position = transform.position;
             //현재 시간을 0으로 초기화
             currentTime = 0;
+            //적을 생성한 후 적의 생성 시간을 다시 설정
+            createTime = Random.Range(minTime, maxTime);
         }
     }
 }

@@ -14,4 +14,11 @@ public class Enemy : MonoBehaviour
         //2. 이동
         transform.position += dir * speed * Time.deltaTime;
     }
+
+    //층돌 시작
+    private void OnCollisionEnter(Collision other)
+    {
+        Destroy(other.gameObject);
+        Destroy(gameObject);
+    }
 }

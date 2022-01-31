@@ -48,8 +48,10 @@ public class Enemy : MonoBehaviour
         GameObject smObject = GameObject.Find("ScoreManager");
         //2. ScoreMananger 게임 오브젝트 얻어오기
         ScoreManager sm = smObject.GetComponent<ScoreManager>();
-        //ScoreMananger 클래스의 속성에 값 할당
+        //3. ScoreMananger 클래스의 속성에 값 할당
         sm.currentScore++;
+        //4. 화면에 현재 점수 표시하기
+        sm.currentScoreUI.text = "현재 점수 : " + sm.currentScore;
 
         //폭발 효과 공장에서 폭발 효과 생성
         GameObject explosion = Instantiate(explosionFactory);

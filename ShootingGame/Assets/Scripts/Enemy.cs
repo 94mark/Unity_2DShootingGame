@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public float speed = 5;
     //방향을 전역 변수로 만들어 Start와 Update에서 사용
     Vector3 dir;
+    //폭발 공장 주소(외부에서 값을 넣어준다)
+    public GameObject explosionFactory;
 
     void Start()
     {

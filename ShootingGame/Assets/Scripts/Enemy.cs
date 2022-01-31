@@ -48,23 +48,8 @@ public class Enemy : MonoBehaviour
         GameObject smObject = GameObject.Find("ScoreManager");
         //2. ScoreMananger 게임 오브젝트 얻어오기
         ScoreManager sm = smObject.GetComponent<ScoreManager>();
-        //3. ScoreMananger 클래스의 속성에 값 할당
-        sm.currentScore++;
-        //4. 화면에 현재 점수 표시하기
-        sm.currentScoreUI.text = "현재 점수 : " + sm.currentScore;
-
-        //최고 점수 표시하기
-        //1. 현재 점수가 최고 점수보다 큼 
-        //-> 만약 현재 점수가 최고 점수를 초과했다면
-        if(sm.currentScore > sm.bestScore)
-        {
-            //2. 최고 점수를 갱신시킨다
-            sm.bestScore = sm.currentScore;
-            //3. 최고 점수 UI에 표시
-            sm.bestScoreUI.text = "최고 점수 : " + sm.bestScore;
-            //목표 : 최고 점수를 저장
-            PlayerPrefs.SetInt("Best Score", sm.bestScore);
-        }
+        //3. ScoreManager의 Get/Set 함수로 수정
+        sm.SetScore(sm.GetScore() + 1);
 
         //폭발 효과 공장에서 폭발 효과 생성
         GameObject explosion = Instantiate(explosionFactory);

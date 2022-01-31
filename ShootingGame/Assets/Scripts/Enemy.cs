@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
         //최고 점수 표시하기
         //1. 현재 점수가 최고 점수보다 큼 
         //-> 만약 현재 점수가 최고 점수를 초과했다면
-        if(sm.currentScore > sm.bestScrore)
+        if(sm.currentScore > sm.bestScore)
         {
             //2. 최고 점수를 갱신시킨다
             sm.bestScore = sm.currentScore;

@@ -13,4 +13,12 @@ public class ScoreManager : MonoBehaviour
     public Text bestScoreUI;
     //최고 점수
     public int bestScore;
+
+    void Start()
+    {
+        //1. 최고 점수를 불러와 bestScore에 넣어주기
+        bestScore = PlayerPrefs.GetInt("Best Score", 0);
+        //2. 최고 점수를 화면에 표시하기
+        bestScoreUI.text = "최고 점수 : " + bestScore;
+    }
 }

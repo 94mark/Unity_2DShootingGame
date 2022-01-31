@@ -62,6 +62,8 @@ public class Enemy : MonoBehaviour
             sm.bestScore = sm.currentScore;
             //3. 최고 점수 UI에 표시
             sm.bestScoreUI.text = "최고 점수 : " + sm.bestScore;
+            //목표 : 최고 점수를 저장
+            PlayerPrefs.SetInt("Best Score", sm.bestScore);
         }
 
         //폭발 효과 공장에서 폭발 효과 생성

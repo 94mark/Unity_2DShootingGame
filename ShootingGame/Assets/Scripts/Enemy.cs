@@ -43,6 +43,11 @@ public class Enemy : MonoBehaviour
     //층돌 시작
     private void OnCollisionEnter(Collision other)
     {
+        //폭발 효과 공장에서 폭발 효과 생성
+        GameObject explosion = Instantiate(explosionFactory);
+        //폭발 효과 위치시키기
+        explosion.transform.position = transform.position;
+
         Destroy(other.gameObject);
         Destroy(gameObject);
     }

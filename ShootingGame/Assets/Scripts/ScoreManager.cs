@@ -13,6 +13,17 @@ public class ScoreManager : MonoBehaviour
     public Text bestScoreUI;
     //최고 점수
     private int bestScore;
+    //싱글턴 객체
+    public static ScoreManager Instance = null;
+
+    //싱글턴 객체에 값이 없으면 생성된 자기 자신을 할당
+    void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
 
     void Start()
     {

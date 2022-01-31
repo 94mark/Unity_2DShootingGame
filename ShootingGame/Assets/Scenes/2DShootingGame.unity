@@ -1801,6 +1801,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScoreUI: {fileID: 1006256400}
   currentScore: 0
+  bestScoreUI: {fileID: 79988968}
+  bestScore: 0
 --- !u!4 &2091571913
 Transform:
   m_ObjectHideFlags: 0

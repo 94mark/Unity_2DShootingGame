@@ -53,6 +53,17 @@ public class Enemy : MonoBehaviour
         //4. 화면에 현재 점수 표시하기
         sm.currentScoreUI.text = "현재 점수 : " + sm.currentScore;
 
+        //최고 점수 표시하기
+        //1. 현재 점수가 최고 점수보다 큼 
+        //-> 만약 현재 점수가 최고 점수를 초과했다면
+        if(sm.currentScore > sm.bestScrore)
+        {
+            //2. 최고 점수를 갱신시킨다
+            sm.bestScore = sm.currentScore;
+            //3. 최고 점수 UI에 표시
+            sm.bestScoreUI.text = "최고 점수 : " + sm.bestScore;
+        }
+
         //폭발 효과 공장에서 폭발 효과 생성
         GameObject explosion = Instantiate(explosionFactory);
         //폭발 효과 위치시키기

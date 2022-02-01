@@ -11,7 +11,8 @@ public class EnemyManager : MonoBehaviour
     public float maxTime = 1.5f; //최대 시간
 
     public int poolSize = 10; //오브젝트 풀 크기
-    GameObject[] enemyObjectPool; //오브젝트 풀 배열
+    //GameObject[] enemyObjectPool; //오브젝트 풀 배열
+    public List<GameObject> enemyObjectPool; //오브젝트 풀 배열
     public Transform[] spawnPoints; //SpawnPoints들
 
     void Start()
@@ -20,14 +21,17 @@ public class EnemyManager : MonoBehaviour
         createTime = Random.Range(minTime, maxTime);
 
         //오브젝트 풀을 에너미들을 담을 수 있는 크기로 만들어준다
-        enemyObjectPool = new GameObject[poolSize];
+        //enemyObjectPool = new GameObject[poolSize];
+        enemyObjectPool = new List<GameObject>();
+
         //오브젝트 풀에 넣을 에너미 개수만큼 반복
         for (int i = 0; i < poolSize; i++)
         {
             //에너미 공장에서 에너미 생성
             GameObject enemy = Instantiate(enemyFactory);
             //에너미를 오브젝트 풀에 넣는다
-            enemyObjectPool[i] = enemy;
+            //enemyObjectPool[i] = enemy;
+            enemyObjectPool.Add(enemy);
             //비활성화
             enemy.SetActive(false);
         }
@@ -39,7 +43,7 @@ public class EnemyManager : MonoBehaviour
         //1. 생성 시간이 되었으니까
         if(currentTime > createTime)
         {
-            //2. 에너미 풀 안에 있는 에너미 중에서
+            /*2. 에너미 풀 안에 있는 에너미 중에서
             for(int i = 0; i < poolSize; i++)
             {
                 //3. 비활성화 된 에너미를
@@ -56,6 +60,21 @@ public class EnemyManager : MonoBehaviour
                     //에너미 위치시키기
                     enemy.transform.position = spawnPoints[index].position;
                 }
+            }*/
+
+            //2. 오브젝트 풀에 에너미가 있다면
+            if(enemyObjectPool.Count > 0)
+            {
+                //오브젝트풀에서 enemy를 가져다 사용
+                GameObject enemy = enemyObjectPool[0];
+                //오브젝트풀에서 에너미 제거
+                enemyObjectPool.Remove(enemy);
+                //랜덤으로 인덱스 선택
+                int index = Random.Range(0, spawnPoints.Length);
+                //에너미 위치시키기
+                enemy.transform.position = spawnPoints[index].position;
+                //에너미 활성화
+                enemy.SetActive(true);
             }
             createTime = Random.Range(minTime, maxTime);
             createTime = 0;

@@ -15,7 +15,31 @@ public class ScoreManager : MonoBehaviour
     private int bestScore;
     //싱글턴 객체
     public static ScoreManager Instance = null;
+    public int Score
+    {
+        get
+        {
+            return currentScore;
+        }
+        set
+        {
+            //ScoreManager 클래스의 속성에 값 할당
+            currentScore = value;
+            //화면에 현재 점수 표시
+            currentScoreUI.text = "현재 점수 : " + currentScore;
 
+            //최고 점수 표시
+            if(currentScore > bestScore)
+            {
+                //최고 점수 갱신
+                bestScore = currentScore;
+                //최고 점수 UI 표시
+                bestScoreUI.text = "최고 점수 : " + bestScore;
+                //최고 점수 저장
+                PlayerPrefs.SetInt("Best Score", bestScore);
+            }
+        }
+    }
     //싱글턴 객체에 값이 없으면 생성된 자기 자신을 할당
     void Awake()
     {
@@ -33,7 +57,7 @@ public class ScoreManager : MonoBehaviour
         bestScoreUI.text = "최고 점수 : " + bestScore;
     }
 
-    //currentScore에 값을 넣고 화면에 표시
+    /*currentScore에 값을 넣고 화면에 표시
     public void SetScore(int value)
     {
         //3. ScoreMananger 클래스의 속성에 값 할당
@@ -59,5 +83,5 @@ public class ScoreManager : MonoBehaviour
     public int GetScore()
     {
         return currentScore;
-    }
+    }*/
 }

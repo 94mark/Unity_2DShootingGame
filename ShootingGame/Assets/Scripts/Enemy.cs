@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     //폭발 공장 주소(외부에서 값을 넣어준다)
     public GameObject explosionFactory;
 
-    void Start()
+    void OnEnable()
     {
         //Vector3 dir;
         //0부터 9까지 10개의 값 중에 하나를 랜덤으로 가져온다

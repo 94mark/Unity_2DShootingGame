@@ -44,7 +44,8 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         //에너미를 잡을 때마다 현재 점수 표시
-        ScoreManager.Instance.SetScore(ScoreManager.Instance.GetScore() + 1);
+        ScoreManager.Instance.Score++;
+        //ScoreManager.Instance.SetScore(ScoreManager.Instance.GetScore() + 1);
         /*1. 씬에서 ScroeManager 객체 호출
         GameObject smObject = GameObject.Find("ScoreManager");
         //2. ScoreMananger 게임 오브젝트 얻어오기

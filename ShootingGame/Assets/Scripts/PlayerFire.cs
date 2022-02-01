@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerFire : MonoBehaviour
 {
     public GameObject bulletFactory; //총알을 생산할 공장
-    public GameObject firePosition; //총구
+    
     public int poolSize = 10; //탄창에 넣을 수 있는 총알의 개수
     GameObject[] bulletObjectPool; //오브젝트 풀 배열
 
@@ -44,7 +44,7 @@ public class PlayerFire : MonoBehaviour
                     //4. 총알을 발사(활성화)
                     bullet.SetActive(true);
                     //총알 위치
-                    bullet.transform.position = firePosition. transform.position;
+                    bullet.transform.position = transform.position;
                     //총알을 발사했기 때문에 비활성화 총알 검색 중단
                     break;
                 }

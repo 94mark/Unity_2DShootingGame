@@ -58,7 +58,17 @@ public class Enemy : MonoBehaviour
         //폭발 효과 위치시키기
         explosion.transform.position = transform.position;
 
-        Destroy(other.gameObject);
+        //만약 부딪힌 객체가 bullet인 경우 비활성화시켜 탄창에 다시 넣음
+        //1. 만약 부딪힌 물체가 bullet이라면
+        if(other.gameObject.name.Contains("Bullet"))
+        {
+            //2. 부딪힌 물체를 비활성화
+            other.gameObject.SetActive(false);
+        }
+        else
+        {
+            Destroy(other.gameObject);
+        }
         Destroy(gameObject);
     }
 }

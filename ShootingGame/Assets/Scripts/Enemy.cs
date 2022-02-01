@@ -77,5 +77,11 @@ public class Enemy : MonoBehaviour
         //Destroy로 없애는 대신, 비활성화해 풀에 자원을 반납
         //Destroy(gameObject);
         gameObject.SetActive(false);
+
+        //EnemyManager 클래스 얻어오기
+        GameObject emObject = GameObject.Find("EnemyManager");
+        EnemyManager manager = emObject.GetComponent<EnemyManager>();
+        //리스트에 총알 삽입
+        manager.enemyObjectPool.Add(gameObject);
     }
 }

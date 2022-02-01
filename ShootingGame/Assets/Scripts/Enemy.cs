@@ -69,6 +69,8 @@ public class Enemy : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
-        Destroy(gameObject);
+        //Destroy로 없애는 대신, 비활성화해 풀에 자원을 반납
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

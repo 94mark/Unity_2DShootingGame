@@ -7,8 +7,8 @@ public class EnemyManager : MonoBehaviour
     float currentTime; //현재 시간
     public float createTime = 1; //일정 시간
     public GameObject enemyFactory; //적 공장
-    float minTime = 1; //최소 시간
-    float maxTime = 5; //최대 시간
+    public float minTime = 0.5f; //최소 시간
+    public float maxTime = 1.5f; //최대 시간
 
     public int poolSize = 10; //오브젝트 풀 크기
     GameObject[] enemyObjectPool; //오브젝트 풀 배열
@@ -51,11 +51,13 @@ public class EnemyManager : MonoBehaviour
                     enemy.transform.position = transform.position;
                     //4. 에너미를 활성화하고 싶다
                     enemy.SetActive(true);
-                    //에너미 활성화 하였기 때문에 검색 중단
-                    break;
+                    //랜덤으로 인덱스 선택
+                    int index = Random.Range(0, spawnPoints.Length);
+                    //에너미 위치시키기
+                    enemy.transform.position = spawnPoints[index].position;
                 }
             }
-            createTime = Random.Range(1.0f, 5.0f);
+            createTime = Random.Range(minTime, maxTime);
             createTime = 0;
         }
     }

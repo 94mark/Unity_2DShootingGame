@@ -574,7 +574,12 @@ MonoBehaviour:
   createTime: 1
   enemyFactory: {fileID: 7870334480606705687, guid: a987b0d57007ea74bb7d4d8720219c20, type: 3}
   poolSize: 10
-  spawnPoints: []
+  spawnPoints:
+  - {fileID: 85258968}
+  - {fileID: 973280096}
+  - {fileID: 696380530}
+  - {fileID: 1056029339}
+  - {fileID: 80911089}
 --- !u!4 &243553200
 Transform:
   m_ObjectHideFlags: 0

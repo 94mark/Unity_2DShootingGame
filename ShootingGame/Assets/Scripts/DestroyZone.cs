@@ -21,6 +21,14 @@ public class DestroyZone : MonoBehaviour
                 //리스트에 총알 삽입
                 player.bulletObjectPool.Add(other.gameObject);
             }
+            else if (other.gameObject.name.Contains("Enemy"))
+            {
+                //EnemyManager 클래스 얻어오기
+                GameObject emObject = GameObject.Find("EnemyManager");
+                EnemyManager manager = emObject.GetComponent<EnemyManager>();
+                //리스트에 총알 삽입
+                manager.enemyObjectPool.Add(other.gameObject);
+            }
         }
     }
 }

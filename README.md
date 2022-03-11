@@ -1,4 +1,6 @@
 # 2D 1인용 비행기 슈팅게임 제작
+![image2](https://user-images.githubusercontent.com/90877724/157865353-d26f326f-6633-462f-a63d-e9a547abe3ed.png)
+![image](https://user-images.githubusercontent.com/90877724/157865358-39840776-7ebf-478a-99ec-e1eec09e8c39.png)
 ## 1. 프로젝트 개요
 ### 1.1 개발 인원/기간 및 포지션
 - 1인, 총 5일 소요
